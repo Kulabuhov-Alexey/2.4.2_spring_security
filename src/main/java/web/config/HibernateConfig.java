@@ -53,7 +53,7 @@ public class HibernateConfig {
         }
 
         @Bean
-        public LocalContainerEntityManagerFactoryBean entityManagerFactory() throws PropertyVetoException {
+        public LocalContainerEntityManagerFactoryBean entityManagerFactory() {
             LocalContainerEntityManagerFactoryBean entityManagerFactoryBean = new LocalContainerEntityManagerFactoryBean();
             JpaVendorAdapter vendorAdapter = new HibernateJpaVendorAdapter();
             entityManagerFactoryBean.setDataSource(dataSource());
