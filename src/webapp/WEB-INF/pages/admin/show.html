@@ -7,10 +7,17 @@
 <body>
 <p th:text="${'User #' + user.getId() + ': ' + user.getName() + ' ' + user.getLastName()
                 + ', e-mail: ' + user.getEmail()}">VALUE</p>
-<a th:href="@{/users/{id}/edit(id=${user.getId()})}">Edit</a>
+<p th:each="role : ${user.getRoles()}" th:text="${user.getRoles()}">Role</p>
 
-<form th:method="DELETE" th:action="@{/users/{id}(id=${user.getId()})}">
+<a th:href="@{/admin/{username}/edit(username=${user.getUsername()})}">Edit</a>
+
+<form th:method="DELETE" th:action="@{/admin/{username}(username=${user.getUsername()})}">
     <input type="submit" value="Delete" />
+</form>
+
+<br>
+<form th:action="@{/logout}" method="POST">
+    <input type="submit" value="Logout"/>
 </form>
 </body>
 </html>
